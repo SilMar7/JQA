@@ -35,5 +35,13 @@ public class Task3 {
         System.out.println("Number 2 is now: " + num2);
         System.out.println("Number 3 is now: " + num3);
 
+        //Summing number 1 and number 2
+        int sum = num1 + num2;
+        System.out.println("The sum of number 1 and number 2 is: " + sum);
+
+        //Subtracting the sum of number 1 and number 2, from number 3
+        int result = num3 - sum;
+        System.out.println("The result from subtracting the sum of numbers 1 and 2, from number 3 is: " + result);
+
     }
 }
