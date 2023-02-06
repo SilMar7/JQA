@@ -19,7 +19,7 @@ public class Car {
             System.out.println("Not enough free fuel!");
             freeFuel = 0;
         }else{
-            freeFuel = freeFuel - fuel;
+            freeFuel -= fuel;
         }
 
     }
