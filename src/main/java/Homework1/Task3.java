@@ -27,7 +27,6 @@ public class Task3 {
         int swap = num1;
         num1 = num2;
         num2 = num3;
-        num3 = swap;
 
         //printing out the swapped numbers
         System.out.println("After swapping the values of the three numbers: ");
