@@ -1,4 +1,4 @@
-package Homwwork3;
+package Homework3;
 
 public class CarPerson {
 
