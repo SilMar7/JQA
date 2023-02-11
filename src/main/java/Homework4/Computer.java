@@ -2,9 +2,9 @@ package Homework4;
 
 public class Computer {
 
-    int year;
-    double price;
-    String operationSystem;
+    private int year;
+    private double price;
+    private String operationSystem;
 
     //creating a no args constructor
     public Computer(){
