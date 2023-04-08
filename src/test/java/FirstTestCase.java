@@ -1,3 +1,7 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -5,20 +9,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class FirstTestCase {
 
-    public static void main(String[] args) {
+    WebDriver driver;
 
+    @Before
+    public void setup() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver.exe");
-
-        //initialize Chrome driver
-        WebDriver driver = new ChromeDriver();
-
-        //opening the page
-        driver.navigate().to("https://www.saucedemo.com/");
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.navigate().to("https://www.saucedemo.com/");
+    }
 
-        //get and print the page's title
-        String title = driver.getTitle();
-        System.out.println("The title of the page is: " + title);
+    @Test
+    public void successfulLoginTest() {
 
         //enter username
         WebElement username = driver.findElement(By.id("user-name"));
@@ -32,13 +34,15 @@ public class FirstTestCase {
         WebElement loginButton = driver.findElement(By.id("login-button"));
         loginButton.click();
 
-        //quit the driver session
+        //verify that the user is logged in successfully
+        String expectedUrl = "https://www.saucedemo.com/inventory.html";
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl, currentUrl);
+
+    }
+
+    @After
+    public void tearDown() {
         driver.quit();
-
-
-
-
-
-
     }
 }
