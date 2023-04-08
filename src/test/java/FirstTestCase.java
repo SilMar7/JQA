@@ -1,26 +1,17 @@
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class FirstTestCase {
+import static org.junit.Assert.assertEquals;
 
-    WebDriver driver;
-
-    @Before
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.saucedemo.com/");
-    }
+public class FirstTestCase extends Hooks {
 
     @Test
     public void successfulLoginTest() {
+
+        //open the page
+        driver.navigate().to("https://www.saucedemo.com/");
 
         //enter username
         WebElement username = driver.findElement(By.id("user-name"));
@@ -37,12 +28,7 @@ public class FirstTestCase {
         //verify that the user is logged in successfully
         String expectedUrl = "https://www.saucedemo.com/inventory.html";
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(expectedUrl, currentUrl);
+        assertEquals(expectedUrl, currentUrl);
 
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
     }
 }
