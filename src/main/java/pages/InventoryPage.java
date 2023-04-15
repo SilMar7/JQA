@@ -21,7 +21,7 @@ public class InventoryPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "a[href='https://twitter.com/saucelabs']")
+    private @FindBy(css = "a[href='https://twitter.com/saucelabs']")
     WebElement twitterIcon;
 
 
