@@ -6,24 +6,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static driver.DriverFactory.getDriver;
 import static org.junit.Assert.assertEquals;
 
 public class InventoryPage {
 
     private WebDriver driver;
+     WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+
+
+    @FindBy(css = "a[href='https://twitter.com/saucelabs']")
+    private WebElement twitterIcon;
+
 
     public InventoryPage() {
-        driver = DriverFactory.getDriver();
+        driver = getDriver();
         PageFactory.initElements(driver, this);
     }
-
-    private @FindBy(css = "a[href='https://twitter.com/saucelabs']")
-    WebElement twitterIcon;
-
 
     public void scrollToBottom() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -31,7 +36,7 @@ public class InventoryPage {
     }
 
     public void clickOnTwitterIcon() {
-        twitterIcon.click();
+        wait.until(ExpectedConditions.elementToBeClickable(twitterIcon)).click();
     }
 
     public void verifyTwitterIsOpenedInNewTab() {
@@ -39,6 +44,7 @@ public class InventoryPage {
         driver.switchTo().window(browserTabs.get(1));
         String expectedUrl = "https://twitter.com/saucelabs";
         String currentUrl = driver.getCurrentUrl();
+        wait.until(ExpectedConditions.titleContains("Sauce Labs (@saucelabs) / Twitter"));
         assertEquals(expectedUrl, currentUrl);
     }
 }

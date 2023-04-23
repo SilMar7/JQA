@@ -5,47 +5,52 @@ import org.openqa.selenium.WebElement;
 import driver.DriverFactory;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static driver.DriverFactory.getDriver;
 import static org.junit.Assert.assertEquals;
 
 
 public class LoginPage {
 
     private WebDriver driver;
+    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
     public LoginPage() {
         driver = DriverFactory.getDriver();
         PageFactory.initElements(driver, this);
     }
 
-    private @FindBy(id = "user-name")
-    WebElement usernameField;
+    @FindBy(id = "user-name")
+    private WebElement usernameField;
 
-    private @FindBy(id = "password")
-    WebElement passwordField;
+    @FindBy(id = "password")
+    private WebElement passwordField;
 
-    private @FindBy(id = "login-button")
-    WebElement loginButton;
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
 
     public void navigateToURL() {
         driver.get("https://www.saucedemo.com/");
     }
 
     public void setUsername(String username){
-        usernameField.sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
     }
 
     public void setPassword(String password){
-        passwordField.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
     }
 
     public void clickLoginButton(){
-        loginButton.click();
+            wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 
     public void validateSuccessfulLogin(){
         String expectedUrl = "https://www.saucedemo.com/inventory.html";
         String currentUrl = driver.getCurrentUrl();
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
         assertEquals(expectedUrl, currentUrl);
     }
 

@@ -1,12 +1,9 @@
 import helpers.Hooks;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import pages.InventoryPage;
 import pages.LoginPage;
 
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LoginAndOpenTwitterPageTests extends Hooks {
 
     LoginPage loginPage = new LoginPage();
