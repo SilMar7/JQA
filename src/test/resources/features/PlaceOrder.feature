@@ -3,7 +3,7 @@ Feature: Place an order
 
 
   Scenario: Order a product
-    Given the www.saucedemo.com page is open
+    Given the page is open
     And user is logged in
     When the user adds one quantity of a product to the shopping cart
     And user goes to the Checkout page

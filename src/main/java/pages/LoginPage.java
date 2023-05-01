@@ -32,8 +32,8 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    public void navigateToURL() {
-        driver.get(Constants.URL);
+    public void navigateToURL(String url) {
+        driver.get(url);
     }
 
     public void setUsername(String username){
@@ -56,7 +56,7 @@ public class LoginPage {
     }
 
     public void fillAllFieldsAndlogin(String username, String password){
-        navigateToURL();
+        navigateToURL(Constants.URL);
         setUsername(username);
         setPassword(password);
         clickLoginButton();

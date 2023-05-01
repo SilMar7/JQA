@@ -1,3 +1,4 @@
+import utils.Constants;
 import utils.Hooks;
 import org.junit.Test;
 import pages.InventoryPage;
@@ -13,7 +14,7 @@ public class LoginAndOpenTwitterPageTests extends Hooks {
     public void successfulLoginTest() {
 
         //Open the page
-        loginPage.navigateToURL();
+        loginPage.navigateToURL(Constants.URL);
 
         //Enter username
         loginPage.setUsername("standard_user");

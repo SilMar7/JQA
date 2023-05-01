@@ -9,6 +9,7 @@ import pages.CartPage;
 import pages.CheckoutPage;
 import pages.InventoryPage;
 import pages.LoginPage;
+import utils.Constants;
 
 import java.util.List;
 
@@ -20,9 +21,9 @@ public class placeOrderSteps {
     CartPage cartPage = new CartPage();
     CheckoutPage checkoutPage = new CheckoutPage();
 
-    @Given("the www.saucedemo.com page is open")
+    @Given("the page is open")
     public void theWwwSaucedemoComPageIsOpen() {
-        loginPage.navigateToURL();
+        loginPage.navigateToURL(Constants.URL);
     }
 
     @And("user is logged in")
