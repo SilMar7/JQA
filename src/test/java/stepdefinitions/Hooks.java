@@ -1,4 +1,4 @@
-package utils;
+package stepdefinitions;
 
 import driver.DriverFactory;
 import org.junit.AfterClass;

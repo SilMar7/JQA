@@ -3,7 +3,7 @@ package runners;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
-import utils.Hooks;
+import stepdefinitions.Hooks;
 
 import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 
@@ -12,7 +12,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = {"stepdefinitions"},
-        plugin = {"pretty", "html:target/index"},
+        plugin = {"pretty", "html:target/cucumber-report", "json:target/cucumber.json"},
         tags = "@EndToEndTests",
         monochrome = true,
         dryRun = false,

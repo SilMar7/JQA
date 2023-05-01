@@ -1,5 +1,5 @@
 import utils.Constants;
-import utils.Hooks;
+import stepdefinitions.Hooks;
 import org.junit.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
