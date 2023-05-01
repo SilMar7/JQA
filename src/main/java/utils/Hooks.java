@@ -1,19 +1,19 @@
 package utils;
 
 import driver.DriverFactory;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
 
 public class Hooks extends DriverFactory {
 
-    @Before
-    public void setup() {
+    @BeforeClass
+    public static void setup() {
         getDriver();
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         closeDriver();
     }
 }
