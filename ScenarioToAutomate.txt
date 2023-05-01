@@ -2,7 +2,7 @@
 Feature: Place an order
 
 
-  Scenario: Order one quantity of a product
+  Scenario: Order a product
     Given the www.saucedemo.com page is open
     And user is logged in
     When the user adds one quantity of a product to the shopping cart
