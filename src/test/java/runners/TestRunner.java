@@ -5,7 +5,6 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import utils.Hooks;
 
 
 import static driver.DriverFactory.closeDriver;
@@ -25,6 +24,15 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 )
 public class TestRunner {
 
+    @BeforeClass
+    public static void setup() {
+        getDriver();
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        closeDriver();
+    }
 
 
 }
