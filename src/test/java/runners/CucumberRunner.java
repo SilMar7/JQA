@@ -18,6 +18,6 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
         dryRun = false,
         snippets = CAMELCASE
 )
-public class TestRunner extends Hooks {
+public class CucumberRunner extends Hooks {
 
 }
