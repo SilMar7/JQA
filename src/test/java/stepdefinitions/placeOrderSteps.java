@@ -12,6 +12,7 @@ import pages.LoginPage;
 import utils.Constants;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class placeOrderSteps {
@@ -44,10 +45,12 @@ public class placeOrderSteps {
 
     @And("user enters personal details")
     public void userEntersPersonalDetails(io.cucumber.datatable.DataTable dataTable) {
-        List<String> personalDetails = dataTable.asList();
-        String firstName = personalDetails.get(0);
-        String lastName = personalDetails.get(1);
-        String postalCode = personalDetails.get(2);
+        List<Map<String, String>> data =  dataTable.asMaps();
+
+        String firstName = data.get(0).get("firstname");
+        String lastName = data.get(0).get("lastname");
+        String postalCode = data.get(0).get("postalcode");
+
         checkoutPage.enterPersonalDetailsStepsOne(firstName, lastName, postalCode);
     }
 
