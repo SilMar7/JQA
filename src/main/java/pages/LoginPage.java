@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constants;
 
 import static driver.DriverFactory.getDriver;
 import static org.junit.Assert.assertEquals;
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LoginPage {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
     public LoginPage() {
@@ -32,7 +33,7 @@ public class LoginPage {
     private WebElement loginButton;
 
     public void navigateToURL() {
-        driver.get("https://www.saucedemo.com/");
+        driver.get(Constants.URL);
     }
 
     public void setUsername(String username){

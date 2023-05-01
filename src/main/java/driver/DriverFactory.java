@@ -3,13 +3,11 @@ package driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constants;
 
 public class DriverFactory {
 
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
-
-    private static String browserType = "Chrome";
 
     public static WebDriver getDriver(){
         if(webDriver.get() == null){
@@ -21,7 +19,7 @@ public class DriverFactory {
     private static WebDriver createDriver(){
         WebDriver driver = null;
 
-        switch(browserType.toLowerCase()){
+        switch(Constants.BROWSER.toLowerCase().trim()){
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
                 driver = new ChromeDriver();
@@ -42,4 +40,5 @@ public class DriverFactory {
         webDriver.get().quit();
         webDriver.remove();
     }
+
 }

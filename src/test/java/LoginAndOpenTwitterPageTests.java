@@ -1,4 +1,4 @@
-import helpers.Hooks;
+import utils.Hooks;
 import org.junit.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
