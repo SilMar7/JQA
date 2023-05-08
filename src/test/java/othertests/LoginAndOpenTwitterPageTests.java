@@ -1,3 +1,5 @@
+package othertests;
+
 import utils.Constants;
 import stepdefinitions.Hooks;
 import org.junit.Test;

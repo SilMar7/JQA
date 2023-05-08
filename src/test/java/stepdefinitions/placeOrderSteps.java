@@ -23,7 +23,7 @@ public class placeOrderSteps {
     CheckoutPage checkoutPage = new CheckoutPage();
 
     @Given("the page is open")
-    public void theWwwSaucedemoComPageIsOpen() {
+    public void thePageIsOpen() {
         loginPage.navigateToURL(Constants.URL);
     }
 
@@ -45,8 +45,8 @@ public class placeOrderSteps {
 
     @And("user enters personal details")
     public void userEntersPersonalDetails(io.cucumber.datatable.DataTable dataTable) {
-        List<Map<String, String>> data =  dataTable.asMaps();
 
+        List<Map<String, String>> data = dataTable.asMaps();
         String firstName = data.get(0).get("firstname");
         String lastName = data.get(0).get("lastname");
         String postalCode = data.get(0).get("postalcode");
