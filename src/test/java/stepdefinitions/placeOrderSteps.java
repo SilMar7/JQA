@@ -60,7 +60,7 @@ public class placeOrderSteps {
     }
 
     @Then("the product is ordered successfully")
-    public void the_product_is_ordered_successfully() {
+    public void theProductIsOrderedSuccessfully() {
         String expectedSMessage = "Thank you for your order!";
         String actualMessage = checkoutPage.getMessageText();
         Assert.assertEquals(expectedSMessage, actualMessage);
